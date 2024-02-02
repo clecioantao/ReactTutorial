@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  mysqlsrv:
+    image: ubuntu/mysql:8.0-20.04_edge
+    container_name: mysql1
+    environment:
+      MYSQL_ROOT_PASSWORD: "teste"
+      MYSQL_DATABASE: "teste"
+    ports:
+      - "3306:3306"
+    volumes:
+      - /mysql:/var/lib/mysql

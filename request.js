@@ -2,13 +2,13 @@
 const axios = require("axios");
 
 const book = {
-  title: "xxxxxxxx",
-  author: "yyyyyyyy",
+  title: "The Motorcycle Diaries",
+  author: "Ernesto Che Guevara",
   published: "2000-01-01",
 };
 
 axios
-  .post("http://localhost:3100/books", book)
+  .delete("http://localhost:3100/books/655", book)
   .then((response) => {
     console.log(response);
   })

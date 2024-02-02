@@ -3,19 +3,30 @@ class BookRepository {
     this.connectionPool = connectionPool;
   }
 
-  get pool() {}
-
-  save(book, callback) {
-    this.pool.query("insert into books set ?", book, callback);
+  get pool() {
+    return this.connectionPool.getPool();
   }
 
-  get(id) {}
+  save(book, callback) {
+    this.connectionPool.getPool().query("insert into books set ?", book, callback);
+      //throw new Error("Not implemented");
+  }
 
-  getAll() {}
+  get(id, callback) {
+    this.connectionPool.getPool().query('select * from books where id = ?', id, callback);
+  }
 
-  update(id, book) {}
+  getAll(callback) {
+    this.connectionPool.getPool().query('select * from books', callback);
+  }
 
-  delete(id) {}
+  update(id, book, callback) {
+    this.connectionPool.getPool().query('update books set ? where id = ?', [book, id], callback);
+  }
+
+  delete(id, callback) {
+    this.connectionPool.getPool().query('delete from books where id = ?', id, callback);
+    }
 }
 
 module.exports = BookRepository;

@@ -2,15 +2,15 @@
 const axios = require("axios");
 
 const book = {
-  title: "111111111",
-  author: "2222222222222222n",
+  title: "xxxxxxxx",
+  author: "yyyyyyyy",
   published: "2000-01-01",
 };
 
 axios
   .post("http://localhost:3100/books", book)
   .then((response) => {
-    console.log("Response", response.data);
+    console.log(response);
   })
   .catch((error) => {
     console.error("Error", error);
